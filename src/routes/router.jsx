@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../components/Login";
+import PrivateRoute from "../components/PrivateRoute";
 import Register from "../components/Register";
 import UpdateProfile from "../components/UpdateProfile";
 import Root from "../layouts/Root";
@@ -24,7 +25,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/update-profile",
-        element: <UpdateProfile />,
+        element: (
+          <PrivateRoute>
+            <UpdateProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
