@@ -1,7 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 import logo from "/logo.svg";
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const checkPhotoURL =
+    /^https:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/.test(
+      user?.photoURL
+    );
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("User LogOut Successfully Done", {
+          position: "top-center",
+        });
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
   const navLinks = (
     <>
       <li>
@@ -63,16 +83,47 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 gap-2">{navLinks}</ul>
         </div>
-        <div className="navbar-end">
-          <Link
-            to="/login"
-            className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
-          >
-            <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#267188] group-hover:h-full opacity-90"></span>
-            <span className="relative group-hover:text-white font-bold">
-              Login
-            </span>
-          </Link>
+        <div className="navbar-end gap-4">
+          {user && (
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle avatar"
+            >
+              <div className="w-10 rounded-full">
+                <img
+                  alt={`${user?.displayName} image`}
+                  src={`${
+                    !checkPhotoURL
+                      ? "https://lh3.googleusercontent.com/ogw/AF2bZygL7FdZadPsU_kq5JLk4iGvvTHz0m-tgJZsBCDL=s32-c-mo"
+                      : `${user.photoURL}`
+                  }`}
+                  title={user?.displayName}
+                />
+              </div>
+            </div>
+          )}
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
+            >
+              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#267188] group-hover:h-full opacity-90"></span>
+              <span className="relative group-hover:text-white font-bold">
+                LogOUT
+              </span>
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
+            >
+              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#267188] group-hover:h-full opacity-90"></span>
+              <span className="relative group-hover:text-white font-bold">
+                Login
+              </span>
+            </Link>
+          )}
         </div>
       </div>
     </nav>

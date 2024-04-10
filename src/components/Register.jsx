@@ -1,13 +1,48 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { LuEye, LuEyeOff } from "react-icons/lu";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import useAuth from "../hooks/useAuth";
 
 const Register = () => {
+  const { createUser, updateUser } = useAuth();
+  const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+
   const {
     register,
+    reset,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const { email, name, password, photo } = data;
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        if (user) {
+          setError("");
+          updateUser(name, photo)
+            .then(() => {
+              toast.success("User Create Successfully");
+              navigate("/login");
+            })
+            .catch((error) => {
+              toast.error(error.message);
+            });
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        setError(error.message);
+      });
+
+    reset();
+  };
+
   return (
     <div className="hero flex flex-col justify-center items-center py-10  min-h-[calc(100vh-291px)]">
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
@@ -39,6 +74,7 @@ const Register = () => {
                 },
               })}
             />
+
             {errors?.name && (
               <span className="text-red-600 font-semibold">
                 {errors.name.message}
@@ -76,29 +112,45 @@ const Register = () => {
               type="text"
               placeholder="photo URL"
               className="input input-bordered focus:border-[#267188] focus:outline-none"
+              {...register("photo")}
             />
           </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text text-md">Password</span>
             </label>
-            <input
-              type="password"
-              placeholder="password"
-              className="input input-bordered focus:border-[#267188] focus:outline-none"
-              {...register("password", {
-                required: "password is required",
-                minLength: {
-                  value: 6,
-                  message: "password should be 6 character long",
-                },
-                pattern: {
-                  value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
-                  message:
-                    "password contain at least one Upper case and one Lower case letter",
-                },
-              })}
-            />
+            <div className="relative w-full">
+              <input
+                type={`${showPassword ? "text" : "password"}`}
+                placeholder="password"
+                className="input input-bordered w-full focus:border-[#267188] focus:outline-none"
+                {...register("password", {
+                  required: "password is required",
+                  minLength: {
+                    value: 6,
+                    message: "password should be 6 character long",
+                  },
+                  pattern: {
+                    value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
+                    message:
+                      "password contain at least one Upper case and one Lower case letter",
+                  },
+                })}
+              />
+              {showPassword ? (
+                <LuEye
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 cursor-pointer"
+                  size={30}
+                />
+              ) : (
+                <LuEyeOff
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-3 cursor-pointer"
+                  size={30}
+                />
+              )}
+            </div>
             {errors?.password && (
               <span className="text-red-600 font-semibold">
                 {errors.password.message}
@@ -114,7 +166,7 @@ const Register = () => {
             </button>
           </div>
         </form>
-
+        {error && <span className="text-red-600 font-bold">{error}</span>}
         <p className="text-center text-md py-3">
           Already have an account?{" "}
           <span className="text-[#267188] underline">
