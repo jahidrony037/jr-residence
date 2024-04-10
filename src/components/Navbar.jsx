@@ -6,10 +6,10 @@ import logo from "/logo.svg";
 const Navbar = () => {
   const { user, logOut } = useAuth();
 
-  const checkPhotoURL =
-    /^https:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/.test(
-      user?.photoURL
-    );
+  //   const checkPhotoURL =
+  //     /^https:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/.test(
+  //       user?.photoURL
+  //     );
 
   const handleLogOut = () => {
     logOut()
@@ -32,6 +32,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/register">Register</NavLink>
+      </li>
+      <li>
+        <NavLink to="/update-profile">Update Profile</NavLink>
       </li>
     </>
   );
@@ -94,9 +97,9 @@ const Navbar = () => {
                 <img
                   alt={`${user?.displayName} image`}
                   src={`${
-                    !checkPhotoURL
-                      ? "https://lh3.googleusercontent.com/ogw/AF2bZygL7FdZadPsU_kq5JLk4iGvvTHz0m-tgJZsBCDL=s32-c-mo"
-                      : `${user.photoURL}`
+                    user.photoURL
+                      ? `${user?.photoURL}`
+                      : "https://lh3.googleusercontent.com/ogw/AF2bZygL7FdZadPsU_kq5JLk4iGvvTHz0m-tgJZsBCDL=s32-c-mo"
                   }`}
                   title={user?.displayName}
                 />
