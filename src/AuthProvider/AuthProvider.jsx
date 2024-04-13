@@ -1,7 +1,10 @@
 import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -21,6 +24,14 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const googleProvider = new GoogleAuthProvider();
+  const handleGoogleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+  const githubProvider = new GithubAuthProvider();
+  const handleGithubLogin = () => {
+    return signInWithPopup(auth, githubProvider);
+  };
   const updateUser = (name, photo) => {
     setIsLoading(true);
     return updateProfile(auth.currentUser, {
@@ -49,11 +60,13 @@ const AuthProvider = ({ children }) => {
   const allInfo = {
     createUser,
     loginUser,
+    handleGoogleLogin,
+    handleGithubLogin,
     logOut,
     user,
     updateUser,
     isLoading,
-    setIsLoading
+    setIsLoading,
   };
   return (
     <AuthContext.Provider value={allInfo}>{children}</AuthContext.Provider>

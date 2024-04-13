@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FcGoogle } from "react-icons/fc";
+import { IoLogoGithub } from "react-icons/io";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -7,7 +9,7 @@ import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser } = useAuth();
+  const { loginUser, handleGoogleLogin, handleGithubLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
@@ -35,8 +37,23 @@ const Login = () => {
     reset();
   };
 
+  const handleLogin = (socialLogin) => {
+    socialLogin()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        if (user) {
+          toast.success("user login successfully done");
+          location.state ? navigate(`${location.state}`) : navigate("/");
+        }
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
   return (
-    <div className="hero flex justify-center items-center py-10 min-h-[calc(100vh-291px)]">
+    <div className="hero flex flex-col justify-center items-center py-10 min-h-[calc(100vh-291px)]">
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
           Please <span className="text-[#267188]">Login</span> Here
@@ -122,6 +139,28 @@ const Login = () => {
             <Link to="/register">Create an account</Link>
           </span>
         </p>
+        <div className="h-[1px] border-[1px] border-solid border-[#267188] w-3/4 mx-auto mt-10  "></div>
+        <div className=" flex flex-col lg:w-1/2 mx-auto mt-5 mb-5">
+          <button
+            onClick={() => handleLogin(handleGoogleLogin)}
+            className="btn border-[#267188] text-[#267188]"
+          >
+            <FcGoogle size={35} />
+            Login with Google
+          </button>
+          <div className="flex justify-center items-center w-full">
+            <div className="border-[1px] h-[1px] w-full border-[#267188]"></div>
+            <div className="px-1">or</div>
+            <div className="border-[1px] h-[1px] w-full border-[#267188]"></div>
+          </div>
+          <button
+            onClick={() => handleLogin(handleGithubLogin)}
+            className="btn border-[#267188] btn-outline text-[#267188]"
+          >
+            <IoLogoGithub size={35} />
+            Login with Github
+          </button>
+        </div>
       </div>
     </div>
   );

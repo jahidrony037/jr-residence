@@ -13,12 +13,12 @@ const UpdateProfile = () => {
   const onSubmit = (data) => {
     const { name, photo } = data;
     // console.log(name, photo);
+    if (name === user.displayName) {
+      return toast.warn("update name already exits in name field!");
+    }
     updateUser(name, photo)
       .then(() => {
         setIsLoading(false);
-        if (name === user?.displayName) {
-          return toast.warn("update name already exits in name field!");
-        }
         toast.success("update profile successfully done");
       })
       .catch((error) => {
