@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 
 const UpdateProfile = () => {
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, setIsLoading } = useAuth();
   const {
     register,
     handleSubmit,
@@ -15,7 +15,11 @@ const UpdateProfile = () => {
     // console.log(name, photo);
     updateUser(name, photo)
       .then(() => {
-        toast.success("name and photo update successfully done");
+        setIsLoading(false);
+        if (name === user?.displayName) {
+          return toast.warn("update name already exits in name field!");
+        }
+        toast.success("update profile successfully done");
       })
       .catch((error) => {
         toast.error(error.message);
@@ -23,7 +27,15 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="hero flex justify-center items-center py-10 min-h-[calc(100vh-291px)]">
+    <div className="hero flex lg:flex-row flex-col  justify-center items-center gap-11 py-10 min-h-[calc(100vh-291px)]">
+      <div className="flex flex-col justify-center items-center gap-5">
+        <div className="avatar">
+          <div className="w-24 rounded-xl">
+            <img src={user?.photoURL} />
+          </div>
+        </div>
+        <h2 className="text-xl font-bold">Name: {user?.displayName}</h2>
+      </div>
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
           <span className="text-[#267188]">Update</span> Your Profile

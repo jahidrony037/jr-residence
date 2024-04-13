@@ -11,14 +11,18 @@ import { auth } from "../firebase/firebase.init";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const createUser = (email, password) => {
+    setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   const loginUser = (email, password) => {
+    setIsLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const updateUser = (name, photo) => {
+    setIsLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -26,14 +30,17 @@ const AuthProvider = ({ children }) => {
   };
 
   const logOut = () => {
+    setIsLoading(true);
     return signOut(auth);
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        setIsLoading(false);
         setUser(currentUser);
       } else {
+        setIsLoading(false);
         setUser(null);
       }
     });
@@ -45,6 +52,8 @@ const AuthProvider = ({ children }) => {
     logOut,
     user,
     updateUser,
+    isLoading,
+    setIsLoading
   };
   return (
     <AuthContext.Provider value={allInfo}>{children}</AuthContext.Provider>

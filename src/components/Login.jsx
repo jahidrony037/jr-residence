@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { LuEye, LuEyeOff } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { loginUser } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
   const {
     register,
     handleSubmit,
@@ -21,6 +24,8 @@ const Login = () => {
         const user = result.user;
         if (user) {
           toast.success("User Login Successful");
+
+          location.state ? navigate(`${location.state}`) : navigate("/");
         }
       })
       .catch((error) => {
