@@ -1,15 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 import logo from "/logo.svg";
 const Navbar = () => {
-  const { user, logOut } = useAuth();
-
-  //   const checkPhotoURL =
-  //     /^https:\/\/(?:www\.)?[a-zA-Z0-9-]+\.[a-zA-Z]{2,}(?:\/[^\s]*)?$/.test(
-  //       user?.photoURL
-  //     );
+  const { user, logOut, isLoading } = useAuth();
+  // console.log(user);
+  const name = user ? user?.displayName.split(" ")[0] : " ";
 
   const handleLogOut = () => {
     logOut()
@@ -36,11 +34,20 @@ const Navbar = () => {
       <li>
         <NavLink to="/update-profile">Update Profile</NavLink>
       </li>
+      {isLoading === true ? (
+        <ClipLoader color="#267188" />
+      ) : (
+        user?.email && (
+          <li>
+            <NavLink to={`/profile/${name}`}>User Profile</NavLink>
+          </li>
+        )
+      )}
     </>
   );
   return (
     <nav>
-      <div className="navbar bg-base-100 sticky top-0 shadow-xl z-10">
+      <div className="navbar bg-base-100 sticky top-0 shadow-sm z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div
@@ -97,7 +104,7 @@ const Navbar = () => {
                 <img
                   alt={`${user?.displayName} image`}
                   src={`${
-                    user.photoURL
+                    user?.photoURL
                       ? `${user?.photoURL}`
                       : "https://lh3.googleusercontent.com/ogw/AF2bZygL7FdZadPsU_kq5JLk4iGvvTHz0m-tgJZsBCDL=s32-c-mo"
                   }`}
@@ -116,6 +123,8 @@ const Navbar = () => {
                 LogOUT
               </span>
             </button>
+          ) : isLoading ? (
+            <ClipLoader color="#267188" />
           ) : (
             <Link
               to="/login"
