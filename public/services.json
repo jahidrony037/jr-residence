@@ -26,7 +26,7 @@
     "status": "rent",
     "area": "1000 sq ft",
     "location": "New York City, New York",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://dubai-property.investments/uploads/images/2022-03/1154.jpg",
     "facilities": [
       "living room",
       "gym",
@@ -44,7 +44,7 @@
     "status": "sale",
     "area": "2500 sq ft",
     "location": "Chicago, Illinois",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://blackfactsblobstorage.blob.core.windows.net/uploads/blackfacts/facts/2020/12/24a8f22d-0177-4d25-9a97-92948b3b0847.jpg",
     "facilities": [
       "living room",
       "backyard",
@@ -62,7 +62,7 @@
     "status": "rent",
     "area": "1500 sq ft",
     "location": "Seattle, Washington",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://d2cbe6qj96hbor.cloudfront.net/puzzles/YZS4J19G6ZZH4AFJ.jpg",
     "facilities": ["living room", "fireplace", "dock", "deck", "garden"]
   },
   {
@@ -74,7 +74,7 @@
     "status": "sale",
     "area": "3200 sq ft",
     "location": "Boston, Massachusetts",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://i.pinimg.com/originals/8e/a7/3a/8ea73ae4a6b8d45db6351b1382fc5dd5.jpg",
     "facilities": [
       "living room",
       "patio",
@@ -92,7 +92,7 @@
     "status": "rent",
     "area": "800 sq ft",
     "location": "San Francisco, California",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://i0.wp.com/www.re-thinkingthefuture.com/wp-content/uploads/2021/05/A4142-20-Examples-of-modern-student-housing-IMAGE-24.jpeg",
     "facilities": [
       "study room",
       "rooftop lounge",
@@ -110,7 +110,7 @@
     "status": "sale",
     "area": "2800 sq ft",
     "location": "Denver, Colorado",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://www.metalocus.es/sites/default/files/styles/mopis_news_carousel_item_desktop/public/metalocus_bjarne-masttenbroek_dig-it_09.jpg?itok=yMJ2kACl",
     "facilities": [
       "living room",
       "ski-in/ski-out access",
@@ -128,7 +128,7 @@
     "status": "sale",
     "area": "1800 sq ft",
     "location": "Miami, Florida",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://s3.amazonaws.com/fathom_media/uploads/Sugar-Beach-St.-Lucia-Luxury-Beachfront-Bungalow-Deck.jpg.1200x800_q85.jpg",
     "facilities": [
       "living room",
       "private beach access",
@@ -139,14 +139,14 @@
   },
   {
     "id": 9,
-    "estate_title": "Rural Farmhouse Retreat",
-    "segment_name": "Farmhouse",
-    "description": "Embrace the tranquility of country living with this charming farmhouse retreat, nestled amidst rolling hills and scenic vistas. Surrounded by lush greenery and open skies, this idyllic property offers a peaceful escape from the hustle and bustle of city life. Whether you're savoring farm-fresh meals in the sunlit kitchen or exploring the expansive grounds dotted with fruit trees and wildflowers, this farmhouse provides endless opportunities for relaxation and connection with nature. With its timeless charm and pastoral beauty, this rural retreat is the perfect place to unwind and recharge.",
+    "estate_title": "Cave House Retreat",
+    "segment_name": "Cave House",
+    "description": "Cave houses are timeless dwellings, blending natural formations with human ingenuity. Originating from ancient traditions and now experiencing a modern revival, they offer a unique fusion of history, sustainability, and architectural marvel. With their natural insulation and immersive sensory experience, cave houses provide a sanctuary that transcends practicality, inviting inhabitants to paint their own story against a backdrop of rugged beauty. While challenges like ventilation and stability exist, cave houses offer a serene refuge, reminding us of our deep connection to nature and each other.",
     "price": "$350,000",
-    "status": "sale",
+    "status": "rent",
     "area": "2000 sq ft",
     "location": "Portland, Oregon",
-    "image_url": "https://molokophuket.com/uploads/Property/1/2/1200/default_71f3e6a8-e11b-4d96-ac90-d6d14b910dca.jpg",
+    "image_url": "https://dornob.com/wp-content/uploads/2010/03/Anitya-Cave-House.jpg",
     "facilities": [
       "living room",
       "wrap-around porch",
