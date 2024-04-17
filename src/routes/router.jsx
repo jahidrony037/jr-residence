@@ -4,6 +4,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import Register from "../components/Register";
 import UpdateProfile from "../components/UpdateProfile";
 import Root from "../layouts/Root";
+import About from "../pages/About";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import PropertyDetails from "../pages/PropertyDetails";
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
             <UserProfile />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
     ],
   },
