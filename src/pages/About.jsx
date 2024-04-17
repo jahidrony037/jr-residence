@@ -16,7 +16,7 @@ const About = () => {
       >
         <div>
           <img
-            src="../../public/assets/team.jpg"
+            src="https://i.ibb.co/gDryvdk/team.jpg"
             alt="team-image"
             className="w-full md:h-[600px] object-cover brightness-50"
           />
