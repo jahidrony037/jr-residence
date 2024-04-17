@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,6 +21,9 @@ const PropertyDetails = () => {
   } = service;
   return (
     <div className="my-12 flex flex-col md:flex-row gap-12 lg:justify-between ">
+      <Helmet>
+        <title className="lowercase">details {estate_title}</title>
+      </Helmet>
       <div className="rounded-2xl bg-[#1313130D]  lg:w-[48%]">
         <Swiper
           pagination={{

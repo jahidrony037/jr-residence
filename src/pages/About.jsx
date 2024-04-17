@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { MdOutlineRequestPage } from "react-icons/md";
 import { PiHandshakeLight } from "react-icons/pi";
@@ -7,6 +8,9 @@ import "./About.css";
 const About = () => {
   return (
     <div className="mb-10">
+      <Helmet>
+        <title>about</title>
+      </Helmet>
       <div
         className={` bg-no-repeat object-contain bg-contain h-auto flex justify-center items-center lr relative`}
       >

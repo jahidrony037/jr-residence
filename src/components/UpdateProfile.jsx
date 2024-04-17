@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
@@ -28,6 +29,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="hero flex lg:flex-row flex-col  justify-center items-center gap-11 py-10 min-h-[calc(100vh-291px)]">
+      <Helmet>
+        <title>update-profile</title>
+      </Helmet>
       <div className="flex flex-col justify-center items-center gap-5">
         <div className="avatar">
           <div className="w-24 rounded-xl">

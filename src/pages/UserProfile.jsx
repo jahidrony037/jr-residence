@@ -1,9 +1,13 @@
+import { Helmet } from "react-helmet-async";
 import useAuth from "../hooks/useAuth";
 
 const UserProfile = () => {
   const { user } = useAuth();
   return (
     <div className="flex flex-col justify-center items-center min-h-[calc(100vh-291px)] gap-6">
+      <Helmet>
+        <title>user-profile</title>
+      </Helmet>
       <div className="avatar">
         <div className="w-24 rounded-xl">
           <img src={user?.photoURL} />

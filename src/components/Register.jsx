@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { LuEye, LuEyeOff } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
@@ -45,6 +46,9 @@ const Register = () => {
 
   return (
     <div className="hero flex flex-col justify-center items-center py-10  min-h-[calc(100vh-291px)]">
+      <Helmet>
+        <title>register</title>
+      </Helmet>
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
           Please <span className="text-[#267188]">Register</span> Here

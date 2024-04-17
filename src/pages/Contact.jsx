@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const Contact = () => {
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>contact</title>
+      </Helmet>
       <div className="bg-[url('https://i.ibb.co/3kp67VZ/background-building.png')] bg-no-repeat bg-cover h-[570px] md:h-[600px] grid grid-cols-12 ">
         <div className="md:col-span-5 col-span-12 space-y-8">
           <h2 className="lg:text-4xl text-2xl font-medium pb-2">
