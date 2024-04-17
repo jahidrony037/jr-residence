@@ -10,7 +10,8 @@ import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser, handleGoogleLogin, handleGithubLogin } = useAuth();
+  const { loginUser, handleGoogleLogin, handleGithubLogin, setIsLoggedIn } =
+    useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
@@ -27,6 +28,7 @@ const Login = () => {
         const user = result.user;
         if (user) {
           toast.success("User Login Successful");
+          setIsLoggedIn(true);
 
           location.state ? navigate(`${location.state}`) : navigate("/");
         }
@@ -42,8 +44,9 @@ const Login = () => {
     socialLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
         if (user) {
+          setIsLoggedIn(true);
           toast.success("user login successfully done");
           location.state ? navigate(`${location.state}`) : navigate("/");
         }

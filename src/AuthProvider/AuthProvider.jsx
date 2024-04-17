@@ -15,6 +15,7 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const createUser = (email, password) => {
     setIsLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
@@ -42,6 +43,7 @@ const AuthProvider = ({ children }) => {
 
   const logOut = () => {
     setIsLoading(true);
+    setIsLoggedIn(false);
     return signOut(auth);
   };
 
@@ -49,9 +51,12 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
+        setIsLoggedIn(true);
       } else {
         setUser(null);
+        setIsLoggedIn(false);
       }
+
       setIsLoading(false);
     });
     return () => unSubscribe();
@@ -63,6 +68,8 @@ const AuthProvider = ({ children }) => {
     handleGithubLogin,
     logOut,
     user,
+    isLoggedIn,
+    setIsLoggedIn,
     updateUser,
     isLoading,
     setIsLoading,

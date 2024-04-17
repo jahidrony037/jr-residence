@@ -1,17 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
-import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 import "./Navbar.css";
 import logo from "/logo.svg";
 const Navbar = () => {
-  const { user, logOut, isLoading } = useAuth();
+  const { user, logOut, isLoggedIn, setIsLoggedIn } = useAuth();
   // console.log(user);
   const name = user ? user?.displayName.split(" ")[0] : " ";
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
+        setIsLoggedIn(false);
         toast.success("User LogOut Successfully Done", {
           position: "top-center",
         });
@@ -36,7 +36,7 @@ const Navbar = () => {
         <NavLink to="/update-profile">Update Profile</NavLink>
       </li>
 
-      {user && (
+      {isLoggedIn && (
         <li>
           <NavLink to={`/profile/${name}`}>User Profile</NavLink>
         </li>
@@ -92,7 +92,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1 gap-2">{navLinks}</ul>
         </div>
         <div className="navbar-end gap-4">
-          {user && (
+          {isLoggedIn && (
             <div
               tabIndex={0}
               role="button"
@@ -111,7 +111,7 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {!user ? (
+          {!isLoggedIn ? (
             <Link
               to="/login"
               className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
@@ -121,8 +121,6 @@ const Navbar = () => {
                 Login
               </span>
             </Link>
-          ) : isLoading ? (
-            <ClipLoader color="#267188" />
           ) : (
             <button
               onClick={handleLogOut}
