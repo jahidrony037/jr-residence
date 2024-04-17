@@ -36,14 +36,10 @@ const Navbar = () => {
         <NavLink to="/update-profile">Update Profile</NavLink>
       </li>
 
-      {isLoading === true ? (
-        <ClipLoader color="#267188" />
-      ) : (
-        user?.email && (
-          <li>
-            <NavLink to={`/profile/${name}`}>User Profile</NavLink>
-          </li>
-        )
+      {user && (
+        <li>
+          <NavLink to={`/profile/${name}`}>User Profile</NavLink>
+        </li>
       )}
     </>
   );
@@ -115,19 +111,7 @@ const Navbar = () => {
               </div>
             </div>
           )}
-          {user ? (
-            <button
-              onClick={handleLogOut}
-              className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
-            >
-              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#267188] group-hover:h-full opacity-90"></span>
-              <span className="relative group-hover:text-white font-bold">
-                LogOUT
-              </span>
-            </button>
-          ) : isLoading ? (
-            <ClipLoader color="#267188" />
-          ) : (
+          {!user ? (
             <Link
               to="/login"
               className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
@@ -137,6 +121,18 @@ const Navbar = () => {
                 Login
               </span>
             </Link>
+          ) : isLoading ? (
+            <ClipLoader color="#267188" />
+          ) : (
+            <button
+              onClick={handleLogOut}
+              className="px-5 py-2 relative rounded  group overflow-hidden font-medium bg-purple-50 text-[#267188] inline-block border-[1px] border-[#267188]"
+            >
+              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-[#267188] group-hover:h-full opacity-90"></span>
+              <span className="relative group-hover:text-white font-bold">
+                LogOUT
+              </span>
+            </button>
           )}
         </div>
       </div>
