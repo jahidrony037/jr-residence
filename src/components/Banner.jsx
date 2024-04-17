@@ -4,7 +4,11 @@ import { Autoplay, Keyboard, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 const Banner = () => {
   return (
-    <div className="lg:mt-[50px]">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+      className="lg:mt-[50px]"
+    >
       <Swiper
         pagination={{
           type: "bullets",

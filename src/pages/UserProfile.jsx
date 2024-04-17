@@ -4,7 +4,11 @@ import useAuth from "../hooks/useAuth";
 const UserProfile = () => {
   const { user } = useAuth();
   return (
-    <div className="flex flex-col justify-center items-center min-h-[calc(100vh-291px)] gap-6">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      className="flex flex-col justify-center items-center min-h-[calc(100vh-291px)] gap-6"
+    >
       <Helmet>
         <title>user-profile</title>
       </Helmet>

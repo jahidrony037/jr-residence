@@ -12,6 +12,8 @@ const About = () => {
         <title>about</title>
       </Helmet>
       <div
+        data-aos="zoom-in-up"
+        data-aos-duration="1000"
         className={` bg-no-repeat object-contain bg-contain h-auto flex justify-center items-center lr relative`}
       >
         <div>
@@ -26,7 +28,11 @@ const About = () => {
         </h2>
       </div>
 
-      <div className=" mt-[100px] ">
+      <div
+        className=" mt-[100px]"
+        data-aos="zoom-in-up"
+        data-aos-duration="1000"
+      >
         <h2 className="text-center text-[34px] mb-7">About our company</h2>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-10 md:text-left text-justify gap-y-14 ">
           <div>
@@ -68,7 +74,11 @@ const About = () => {
 
       <div className="mt-[200px]">
         <div className="grid md:grid-cols-12 items-center   gap-14 ">
-          <div className="md:col-span-6 grid grid-cols-12 md:gap-4 gap-2">
+          <div
+            data-aos="fade-right"
+            data-aos-duration="1000"
+            className="md:col-span-6 grid grid-cols-12 md:gap-4 gap-2"
+          >
             <div className="col-span-4 ">
               <img
                 src="https://i.ibb.co/1RhHJ6p/first-image.webp"
@@ -91,7 +101,11 @@ const About = () => {
               />
             </div>
           </div>
-          <div className="md:col-span-6">
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1000"
+            className="md:col-span-6"
+          >
             <h2 className="text-[34px] font-bold">
               Find your new home <br /> with us
             </h2>

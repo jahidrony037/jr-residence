@@ -4,7 +4,12 @@ import { FaStar } from "react-icons/fa";
 const TestimonialCard = ({ review }) => {
   const { name, image, description, location } = review;
   return (
-    <div className="mt-14  mb-10">
+    <div
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      data-aos-delay="500"
+      className="mt-14  mb-10"
+    >
       <div className="bg-base-100 shadow-xl flex flex-col justify-between rounded-xl h-[417px] p-5">
         <div className="avatar flex justify-center">
           <div className="w-24 rounded-full">

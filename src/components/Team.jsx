@@ -2,7 +2,12 @@ import PropTypes from "prop-types";
 const Team = ({ team }) => {
   const { employee_name, profession, image } = team;
   return (
-    <div className="mt-10">
+    <div
+      data-aos="flip-left"
+      data-aos-duration="1000"
+      data-aos-delay="500"
+      className="mt-10"
+    >
       <div className="  relative">
         <img
           src={image}

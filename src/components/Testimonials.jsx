@@ -14,7 +14,11 @@ const Testimonials = () => {
   }, []);
   return (
     <div>
-      <h2 className="lg:text-4xl text-2xl font-bold text-center pb-2">
+      <h2
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="lg:text-4xl text-2xl font-bold text-center pb-2"
+      >
         Testimonials
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">

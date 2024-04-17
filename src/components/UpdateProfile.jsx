@@ -28,7 +28,11 @@ const UpdateProfile = () => {
   };
 
   return (
-    <div className="hero flex lg:flex-row flex-col  justify-center items-center gap-11 py-10 min-h-[calc(100vh-291px)]">
+    <div
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+      className="hero flex lg:flex-row flex-col  justify-center items-center gap-11 py-10 min-h-[calc(100vh-291px)]"
+    >
       <Helmet>
         <title>update-profile</title>
       </Helmet>

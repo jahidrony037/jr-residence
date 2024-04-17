@@ -54,7 +54,11 @@ const Login = () => {
   };
 
   return (
-    <div className="hero flex flex-col justify-center items-center py-10 min-h-[calc(100vh-291px)]">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1000"
+      className="hero flex flex-col justify-center items-center py-10 min-h-[calc(100vh-291px)]"
+    >
       <Helmet>
         <title>login</title>
       </Helmet>

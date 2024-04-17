@@ -14,7 +14,11 @@ const Teams = () => {
   }, []);
   return (
     <div>
-      <h2 className="lg:text-4xl text-2xl font-bold text-center pb-2">
+      <h2
+        data-aos="zoom-in"
+        data-aos-duration="1000"
+        className="lg:text-4xl text-2xl font-bold text-center pb-2"
+      >
         Meet Our Team
       </h2>
 

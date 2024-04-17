@@ -2,7 +2,11 @@ import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
-    <div className="mt-10 px-2 md:px-0">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration="1000"
+      className="mt-10 px-2 md:px-0"
+    >
       <Helmet>
         <title>contact</title>
       </Helmet>

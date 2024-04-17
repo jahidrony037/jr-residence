@@ -24,7 +24,11 @@ const PropertyDetails = () => {
       <Helmet>
         <title className="lowercase">details {estate_title}</title>
       </Helmet>
-      <div className="rounded-2xl bg-[#1313130D]  lg:w-[48%]">
+      <div
+        data-aos="fade-right"
+        data-aos-duration="1000"
+        className="rounded-2xl bg-[#1313130D]  lg:w-[48%]"
+      >
         <Swiper
           pagination={{
             type: "bullets",
@@ -78,7 +82,7 @@ const PropertyDetails = () => {
           </SwiperSlide>
         </Swiper>
       </div>
-      <div className="lg:w-[48%]">
+      <div data-aos="fade-left" data-aos-duration="1000" className="lg:w-[48%]">
         <h1 className="text-[#131313] text-[40px]  leading-none playfair font-bold">
           {estate_title}
         </h1>
