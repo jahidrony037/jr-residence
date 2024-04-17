@@ -5,6 +5,7 @@ import Register from "../components/Register";
 import UpdateProfile from "../components/UpdateProfile";
 import Root from "../layouts/Root";
 import About from "../pages/About";
+import Contact from "../pages/Contact";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import PropertyDetails from "../pages/PropertyDetails";
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact-us",
+        element: <Contact />,
       },
     ],
   },

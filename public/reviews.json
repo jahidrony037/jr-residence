@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Susan Barkley",
+    "image": "https://i.ibb.co/ZWdFWbd/review1.jpg",
+    "description": "The WP Estate team did an outstanding job helping me buy my first home. The high level of service and dedication are top.",
+    "location": "Germany"
+  },
+  {
+    "id": 2,
+    "name": "Jim Lorent",
+    "image": "https://i.ibb.co/fQ0vVf9/reviiew2.jpg",
+    "description": "The WP Estate team did an outstanding job helping me buy my first home. The high level of service and dedication to seeing.",
+    "location": "Germany"
+  },
+  {
+    "id": 3,
+    "name": "Mika Gilmore",
+    "image": "https://i.ibb.co/wgRm0BV/review3.jpg",
+    "description": "The WP Estate team delivered on that expectation and I would highly recommend them to anyone who is in the market to buy.",
+    "location": "Germany"
+  },
+  {
+    "id": 4,
+    "name": "Barkley Rawat",
+    "image": "https://i.ibb.co/vBTCjQ5/review4.jpg",
+    "description": "The WP Estate team did an outstanding job helping me buy and create my first real estate website in one week and without hassle."
+  }
+]

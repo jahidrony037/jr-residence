@@ -1,0 +1,22 @@
+[
+  {
+    "employee_name": "Michael Rutter",
+    "profession": "buying agent",
+    "image": "https://i.ibb.co/bBb09jY/person7-500x328.webp"
+  },
+  {
+    "employee_name": "Janet Richmond",
+    "profession": "selling agent",
+    "image": "https://i.ibb.co/vXxR28y/person4-500x328.webp"
+  },
+  {
+    "employee_name": "Maria Barlow",
+    "profession": "sales executive",
+    "image": "https://i.ibb.co/5TXTr3N/person3-500x328.webp"
+  },
+  {
+    "employee_name": "Michaela Suttherland",
+    "profession": "real state broker",
+    "image": "https://i.ibb.co/xq2HqjV/person-500x328.webp"
+  }
+]
