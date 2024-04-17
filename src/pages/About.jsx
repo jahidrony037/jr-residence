@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import "./About.css";
 const About = () => {
   return (
-    <div className="mb-10">
+    <div className="mb-10 px-2 md:px-0">
       <Helmet>
         <title>about</title>
       </Helmet>
