@@ -10,8 +10,13 @@ import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { loginUser, handleGoogleLogin, handleGithubLogin, setIsLoggedIn } =
-    useAuth();
+  const {
+    loginUser,
+    handleGoogleLogin,
+    handleGithubLogin,
+    setIsLoggedIn,
+    setIsLoading,
+  } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location);
@@ -25,6 +30,7 @@ const Login = () => {
     const { password, email } = data;
     loginUser(email, password)
       .then((result) => {
+        setIsLoading(false);
         const user = result.user;
         if (user) {
           toast.success("User Login Successful");
@@ -35,6 +41,7 @@ const Login = () => {
       })
       .catch((error) => {
         toast.error(error.message);
+        setIsLoading(false);
       });
 
     reset();

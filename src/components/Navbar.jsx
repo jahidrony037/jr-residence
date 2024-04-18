@@ -6,7 +6,7 @@ import logo from "/logo.svg";
 const Navbar = () => {
   const { user, logOut, isLoggedIn, setIsLoggedIn } = useAuth();
   // console.log(user);
-  const name = user ? user?.displayName.split(" ")[0] : " ";
+  const name = user ? user?.displayName?.split(" ")[0] : " ";
 
   const handleLogOut = () => {
     logOut()

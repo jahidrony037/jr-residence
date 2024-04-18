@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 
 const Register = () => {
-  const { createUser, updateUser, setIsLoggedIn } = useAuth();
+  const { createUser, updateUser, logOut } = useAuth();
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -29,8 +29,8 @@ const Register = () => {
 
           updateUser(name, photo)
             .then(() => {
-              setIsLoggedIn(false);
-              toast.success("User Create Successfully");
+              toast.success("User Create Successfully Now Please Login");
+              logOut();
               navigate("/login");
             })
             .catch((error) => {

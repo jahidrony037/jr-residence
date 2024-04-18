@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import { Navigate, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
 import useAuth from "../hooks/useAuth";
 import Loader from "./Loader";
 const PrivateRoute = ({ children }) => {
@@ -13,9 +12,7 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
-  toast("You Have Login First", {
-    position: "top-center",
-  });
+
   return <Navigate to="/login" state={location.pathname} />;
 };
 

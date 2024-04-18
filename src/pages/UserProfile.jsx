@@ -3,6 +3,7 @@ import useAuth from "../hooks/useAuth";
 
 const UserProfile = () => {
   const { user } = useAuth();
+  // console.log(user);
   return (
     <div
       data-aos="zoom-in"
@@ -14,15 +15,25 @@ const UserProfile = () => {
       </Helmet>
       <div className="avatar">
         <div className="w-24 rounded-xl">
-          <img src={user?.photoURL} />
+          <img
+            src={
+              user?.photoURL ||
+              user?.providerData[0].photoURL ||
+              "url not found"
+            }
+          />
         </div>
       </div>
 
       <h3 className="text-xl">
-        <span className="font-bold">Name : </span> {user?.displayName}
+        <span className="font-bold">Name : </span>{" "}
+        {user?.displayName ||
+          user?.providerData[0].displayName ||
+          "not found name"}
       </h3>
       <h3 className="text-xl">
-        <span className="font-bold">Email : </span> {user?.email}
+        <span className="font-bold">Email : </span>{" "}
+        {user?.providerData[0].email || "no email found"}
       </h3>
     </div>
   );

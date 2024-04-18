@@ -14,8 +14,8 @@ const UpdateProfile = () => {
   const onSubmit = (data) => {
     const { name, photo } = data;
     // console.log(name, photo);
-    if (name === user.displayName) {
-      return toast.warn("update name already exits in name field!");
+    if (name === user?.displayName) {
+      return toast.warn("please edit the name first!");
     }
     updateUser(name, photo)
       .then(() => {
@@ -29,8 +29,8 @@ const UpdateProfile = () => {
 
   return (
     <div
-        data-aos="zoom-in"
-        data-aos-duration="1000"
+      data-aos="zoom-in"
+      data-aos-duration="1000"
       className="hero flex lg:flex-row flex-col  justify-center items-center gap-11 py-10 min-h-[calc(100vh-291px)]"
     >
       <Helmet>
@@ -42,7 +42,9 @@ const UpdateProfile = () => {
             <img src={user?.photoURL} />
           </div>
         </div>
-        <h2 className="text-xl font-bold">Name: {user?.displayName}</h2>
+        <h2 className="text-xl font-bold">
+          Name: {user?.displayName || user?.providerData[0].displayName}
+        </h2>
       </div>
       <div className="card shrink-0 md:w-6/12 w-3/4 shadow-2xl bg-base-100">
         <h2 className="text-3xl text-center pt-6">
@@ -79,6 +81,21 @@ const UpdateProfile = () => {
                 {errors.name.message}
               </span>
             )}
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-md">Email</span>
+            </label>
+            <input
+              type="email"
+              className="input input-bordered focus:border-[#267188] focus:outline-none"
+              defaultValue={`${
+                user
+                  ? `${user?.email || user?.providerData[0].email}`
+                  : "not found"
+              }`}
+              disabled
+            />
           </div>
 
           <div className="form-control">
